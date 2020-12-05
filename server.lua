@@ -2,7 +2,7 @@ ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 Whitelist = {}
 local webhookURL = "asdf"
-local logaktif = false
+local logaktif = false -- Loglamanın aktif olmasını istiyorsanız burayı true yapabilirsiniz.
 
 ESX.RegisterServerCallback("allowed", function(source, cb)
     local player = ESX.GetPlayerFromId(source)
