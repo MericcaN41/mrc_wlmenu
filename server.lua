@@ -1,7 +1,7 @@
 ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 Whitelist = {}
-local webhookURL = "https://discord.com/api/webhooks/776361088870252555/NkaMNQSPk1BvJTMWeOkAQGnmnCGkDhLJWk83ifxuabngaWRYLg2B9iyexdGlTCoh_dkX"
+local webhookURL = "asdf"
 local logaktif = false
 
 ESX.RegisterServerCallback("allowed", function(source, cb)
