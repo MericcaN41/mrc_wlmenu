@@ -1,6 +1,8 @@
 ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 Whitelist = {}
+local webhookURL = "https://discord.com/api/webhooks/776361088870252555/NkaMNQSPk1BvJTMWeOkAQGnmnCGkDhLJWk83ifxuabngaWRYLg2B9iyexdGlTCoh_dkX"
+local logaktif = false
 
 ESX.RegisterServerCallback("allowed", function(source, cb)
     local player = ESX.GetPlayerFromId(source)
@@ -33,8 +35,25 @@ AddEventHandler("wlekle",function(hex)
             ["@identifier"] = hex
         },function(rows)
             TriggerClientEvent("esx:showNotification",_source,hex .. " whiteliste eklendi!")
+            if logaktif == true then
+                hook("**" .. hex .. "**" .. " whiteliste eklendi! \nEkleyen kişi: " .. GetPlayerName(_source) .. " **[**" .. _source .. "**]**")
+            end
         end)
     else
         TriggerClientEvent("esx:showNotification",_source,hex .. " zaten whitelistli!")
     end
 end)
+
+function hook(mesaj)
+    local embed = {
+        {
+            ["color"] = 3553599,
+            ["title"] = "Whitelist eklendi!",
+            ["description"] = mesaj,
+            ["footer"] = {
+                ["text"] = "Whitelist menu ile eklendi"
+            }
+        }
+    }
+    PerformHttpRequest(webhookURL, function(err,text,headers) end, "POST", json.encode({embeds=embed}), {["Content-Type"] = "application/json"})
+end
