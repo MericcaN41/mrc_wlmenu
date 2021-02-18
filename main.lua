@@ -18,7 +18,7 @@ RegisterNUICallback("kapat", function(data)
 end)
 
 RegisterNUICallback("yenile", function(data)
-    ExecuteCommand("wlyenile")
+    ExecuteCommand(yenileKomut)
 end)
 
 RegisterCommand("wlmenu",function(source,args)
